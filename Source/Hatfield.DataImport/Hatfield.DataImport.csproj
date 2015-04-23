@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtractedDataset.cs" />
+    <Compile Include="Helpers\PropertyInfoHelper.cs" />
     <Compile Include="ICriteria.cs" />
     <Compile Include="IDataImporter.cs" />
     <Compile Include="IDataSource.cs" />

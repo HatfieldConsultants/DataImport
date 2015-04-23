@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Reflection;
+
+using Hatfield.DataImport.Helpers;
 
 namespace Hatfield.DataImport.ValueAssigners
 {
@@ -9,7 +12,9 @@ namespace Hatfield.DataImport.ValueAssigners
     {
         public void AssignValue(object model, string path, object value, Type type)
         {
-            throw new NotImplementedException();
+            PropertyInfo propertyInfo = null;
+            var parentObject = PropertyInfoHelper.GetProperty(model, path, out propertyInfo);
+            PropertyInfoHelper.SetPropertyValue(propertyInfo, parentObject, value, type);
         }
     }
 }
