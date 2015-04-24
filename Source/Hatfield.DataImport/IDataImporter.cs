@@ -9,7 +9,7 @@ namespace Hatfield.DataImport
     {
         bool IsDataSourceSupported(IDataSource dataSource);
         IExtractedDataset Extract(IDataSource dataSource);
-        IEnumerable<ICriteria> AllCriteria { get; }
+        IEnumerable<ICriteria> AllCriterias { get; }
         IEnumerable<IExtractConfiguration> ExtractConfigurations { get; }
     }
 }

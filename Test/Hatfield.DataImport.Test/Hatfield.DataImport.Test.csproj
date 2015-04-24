@@ -43,10 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Criterias\RegexCriteriaTest.cs" />
+    <Compile Include="DefaultParserFactoryTest.cs" />
     <Compile Include="ExtractedDatasetTest.cs" />
     <Compile Include="ResultLevelHelperTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueAssigners\SimpleValueAssignerTest.cs" />
+    <Compile Include="ValueParsers\DateTimeValueParserTest.cs" />
+    <Compile Include="ValueParsers\DoubleValueParserTest.cs" />
+    <Compile Include="ValueParsers\IntValueParserTest.cs" />
+    <Compile Include="ValueParsers\StringValueParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
