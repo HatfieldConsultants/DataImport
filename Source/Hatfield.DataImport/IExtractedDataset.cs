@@ -12,5 +12,6 @@ namespace Hatfield.DataImport
         IEnumerable<IResult> AllParsingResults { get; }
         void AddParsingResult(IResult parsingResult);
         void AddParsingResults(IEnumerable<IResult> parsingResults);
+        ResultLevel ThresholdLevel { get; }
     }
 }

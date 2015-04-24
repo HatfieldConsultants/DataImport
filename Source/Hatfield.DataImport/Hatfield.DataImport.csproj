@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseResult.cs" />
+    <Compile Include="Criterias\RegexCriteria.cs" />
     <Compile Include="ExtractedDataset.cs" />
     <Compile Include="Helpers\PropertyInfoHelper.cs" />
     <Compile Include="ICriteria.cs" />

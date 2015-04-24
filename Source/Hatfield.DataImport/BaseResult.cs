@@ -5,25 +5,15 @@ using System.Text;
 
 namespace Hatfield.DataImport
 {
-    public class ParsingResult : IParsingResult
+    public class BaseResult : IResult
     {
         private ResultLevel _level;
         private string _message;
-        private object _value;
-        
-        public ParsingResult(ResultLevel level, string message, object value)
+
+        public BaseResult(ResultLevel level, string message)
         {
             _level = level;
-            _message = message;
-            _value = value;
-        }
-
-        public object Value
-        {
-            get
-            {
-                return _value;
-            }
+            _message = message;            
         }
 
         public ResultLevel Level

@@ -8,20 +8,46 @@ namespace Hatfield.DataImport
     public class ExtractedDataset : IExtractedDataset
     {
         private IEnumerable<IResult> _results;
+        private ResultLevel _thresholdLevel = ResultLevel.ERROR;
 
         public ExtractedDataset()
         {
             _results = new List<IResult>();
         }
 
+        public ExtractedDataset(ResultLevel thresholdLevel)
+        {
+            _results = new List<IResult>();
+            _thresholdLevel = thresholdLevel;
+        }
+
         public IEnumerable<object> ExtractedEntities
         {
-            get { throw new NotImplementedException(); }
+            get {
+                if (IsExtractedSuccess)
+                {
+                    var entities = from parsingResult in _results
+                                   where parsingResult is IParsingResult
+                                   select ((IParsingResult)parsingResult).Value;
+
+                    return entities;
+                }
+                else
+                {
+                    return null;
+                }
+            }
         }
 
         public bool IsExtractedSuccess
         {
-            get { throw new NotImplementedException(); }
+            get {
+                var isAllResultUnderThreshold = _results.Where(
+                                                                x => ResultLevelHelper.LevelIsHigherThanOrEqualToThreshold(_thresholdLevel, x.Level))
+                                                        .Any();
+
+                return !isAllResultUnderThreshold;
+            }
         }
 
         public IEnumerable<IResult> AllParsingResults
@@ -37,6 +63,12 @@ namespace Hatfield.DataImport
         public void AddParsingResults(IEnumerable<IResult> parsingResults)
         {
             _results = _results.Concat(parsingResults);
+        }
+
+
+        public ResultLevel ThresholdLevel
+        {
+            get { return _thresholdLevel; }
         }
     }
 }
