@@ -12,48 +12,55 @@ namespace Hatfield.DataImport.CSV.Test
     [TestFixture]
     public class CSVDataParseTest
     {
+        private string _csvDataFilePath;
+        private string _datDataFilePath;
         private string[][] _rows;
-        OtherDataToImport dataToImport;
-        CSVDataSourceLocation csvDataSourceLocation;
-        CSVDataToImport csvDataToImport;
-        OtherDataSourceLocation dataSourceLocation;
+        IDataSourceLocation dataSourceLocation;
+        IDataToImport dataToImport;
+
 
         [TestFixtureSetUp]
         public void Setup()
         {
-            _rows = new string[20][];
-            dataToImport = new OtherDataToImport(_rows);
-            csvDataSourceLocation = new CSVDataSourceLocation(5, 4);
-            dataSourceLocation = new OtherDataSourceLocation(5, 4);
-            csvDataToImport = new CSVDataToImport(_rows);
+            _csvDataFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFiles", "CSV_15min.csv");
+            _datDataFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFiles", "DAT_15min.dat");           
         }
 
         [Test]
         public void CSVDataToImportTest()
-        {                     
-            var parser = new CellParser(); 
+        {
+            var dataSource = new CSVDataSource(_csvDataFilePath);
+            dataSourceLocation = new OtherDataSourceLocation();
+            dataToImport = dataSource.FetchData();
+            var parser = new CellParser();
             AssertData(parser, dataToImport, dataSourceLocation);
         }
 
         [Test]
-        public void CSVDataSourceLocationParseTest()
+        public void CSVDataSourceLocationTest()
         {
+            dataSourceLocation = new CSVDataSourceLocation(5, 4);
+            dataToImport = new OtherDataToImport();
             var parser = new CellParser();
-            AssertData(parser, csvDataToImport, csvDataSourceLocation);
+            AssertData(parser, dataToImport, dataSourceLocation);
         }
 
         [Test]
         public void CSVParseTestSuccess()
         {
-            var dataToImport = new CSVDataToImport(_rows);
-            var dataSourceLocation = new CSVDataSourceLocation(0, 0);
+            var dataSource = new CSVDataSource(_csvDataFilePath);
+            var dataSourceLocation = new CSVDataSourceLocation(5, 4);
+            dataToImport = dataSource.FetchData();
             var parser = new CellParser();
-            AssertParseResultSuccess(parser, dataToImport, dataSourceLocation);
+            AssertParserSuccess(parser, dataToImport, dataSourceLocation);
         }
 
         [Test]
         public void CSVParseTestFailure()
         {
+            var dataSource = new CSVDataSource(_csvDataFilePath);
+            var dataSourceLocation = new CSVDataSourceLocation(12000, 1);
+            dataToImport = dataSource.FetchData();
             var parser = new CellParser();
             AssertParserFail(parser, dataToImport, dataSourceLocation);
         }
@@ -68,7 +75,7 @@ namespace Hatfield.DataImport.CSV.Test
         }
 
         
-        private void AssertParseResultSuccess(CellParser parser, IDataToImport dataToImport, IDataSourceLocation dataSourceLocation)
+        private void AssertParserSuccess(CellParser parser, IDataToImport dataToImport, IDataSourceLocation dataSourceLocation)
         {
             var parseResult = parser.Parse<CSVDataSource>(dataToImport, dataSourceLocation);
 
@@ -87,40 +94,21 @@ namespace Hatfield.DataImport.CSV.Test
         //test implementation
         public class OtherDataSourceLocation : IDataSourceLocation
         {
-            private int _row;
-            private int _column;
-
-            public OtherDataSourceLocation(int row, int column)
+            public OtherDataSourceLocation()
             {
-                _row = row;
-                _column = column;
-            }
 
-            public int Row
-            {
-                get
-                {
-                    return _row;
-                }
-            }
-
-            public int Column
-            {
-                get
-                {
-                    return _column;
-                }
             }
         }
+
         //test implementation
         public class OtherDataToImport : IDataToImport
         {
             //Jagged array
             private string[][] _rows;
 
-            public OtherDataToImport(string[][] rows)
+            public OtherDataToImport()
             {
-                _rows = rows;
+               
             }
 
             public object Data
