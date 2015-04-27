@@ -38,7 +38,7 @@ namespace Hatfield.DataImport.CSV
         protected abstract IExtractedDataset ExtractDataFromValidatedDataSource(IDataSource dataSource);
 
 
-        public IEnumerable<ICriteria> AllCriterias
+        public IEnumerable<ICriteria> AllCriteria
         {
             get { throw new NotImplementedException(); }
         }
