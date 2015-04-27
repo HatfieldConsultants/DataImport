@@ -49,7 +49,7 @@ namespace Hatfield.DataImport.CSV.Test
         public void CSVParseTestSuccess()
         {
             var dataSource = new CSVDataSource(_csvDataFilePath);
-            var dataSourceLocation = new CSVDataSourceLocation(5, 4);
+            var dataSourceLocation = new CSVDataSourceLocation(5, 3);
             dataToImport = dataSource.FetchData();
             var parser = new CellParser();
             AssertParserSuccess(parser, dataToImport, dataSourceLocation);
