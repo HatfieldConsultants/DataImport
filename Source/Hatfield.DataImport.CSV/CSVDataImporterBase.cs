@@ -30,7 +30,7 @@ namespace Hatfield.DataImport.CSV
             else
             {
                 //return data file type or format not support result
-                return new ExtractedDataset();
+                return null;
             }
         }
 
@@ -38,7 +38,7 @@ namespace Hatfield.DataImport.CSV
         protected abstract IExtractedDataset ExtractDataFromValidatedDataSource(IDataSource dataSource);
 
 
-        public IEnumerable<ICriteria> AllCriteria
+        public IEnumerable<ICriteria> AllCriterias
         {
             get { throw new NotImplementedException(); }
         }

@@ -11,6 +11,13 @@ namespace Hatfield.DataImport.CSV.Parsers
 {
     public class CellParser : IParser
     {
+        private IParserFactory _parserFactory;
+
+        public CellParser(IParserFactory parserFactory)
+        {
+            _parserFactory = parserFactory;
+        }
+
         public IResult Parse<T>(IDataToImport dataToImport, IDataSourceLocation dataSourceLocation)
         {
             if (!(dataSourceLocation is CSVDataSourceLocation))
@@ -48,7 +55,11 @@ namespace Hatfield.DataImport.CSV.Parsers
 
         private object ParseRawValue(Type type, string rawValue)
         {
-            return null;
+            var valueParser = _parserFactory.GetValueParser(type);
+
+            var parsedValue = valueParser.Parse(rawValue);
+
+            return parsedValue;
         }
     }
 }

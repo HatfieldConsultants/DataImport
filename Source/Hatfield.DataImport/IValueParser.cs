@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Hatfield.DataImport
 {
-    public interface IParserFactory
+    public interface IValueParser
     {
-        IParser GetParser(Type type);
-        IValueParser GetValueParser(Type type);
+        object Parse(object value);
     }
 }

@@ -26,95 +26,30 @@ namespace Hatfield.DataImport.CSV.Test
             _datDataFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFiles", "DAT_15min.dat");           
         }
 
-        [Test]
-        public void CSVDataToImportTest()
-        {
-            var dataSource = new CSVDataSource(_csvDataFilePath);
-            dataSourceLocation = new OtherDataSourceLocation();
-            dataToImport = dataSource.FetchData();
-            var parser = new CellParser();
-            AssertData(parser, dataToImport, dataSourceLocation);
-        }
-
-        [Test]
-        public void CSVDataSourceLocationTest()
-        {
-            dataSourceLocation = new CSVDataSourceLocation(5, 4);
-            dataToImport = new OtherDataToImport();
-            var parser = new CellParser();
-            AssertData(parser, dataToImport, dataSourceLocation);
-        }
 
         [Test]
         public void CSVParseTestSuccess()
         {
             var dataSource = new CSVDataSource(_csvDataFilePath);
-            var dataSourceLocation = new CSVDataSourceLocation(5, 3);
+            var dataSourceLocation = new CSVDataSourceLocation(6, 3);
+            var dataDateTimeSourceLocation = new CSVDataSourceLocation(6, 0);
+
             dataToImport = dataSource.FetchData();
-            var parser = new CellParser();
-            AssertParserSuccess(parser, dataToImport, dataSourceLocation);
-        }
+            var parser = new CellParser(new DefaultParserFactory());
 
-        [Test]
-        public void CSVParseTestFailure()
-        {
-            var dataSource = new CSVDataSource(_csvDataFilePath);
-            var dataSourceLocation = new CSVDataSourceLocation(12000, 1);
-            dataToImport = dataSource.FetchData();
-            var parser = new CellParser();
-            AssertParserFail(parser, dataToImport, dataSourceLocation);
-        }
+            var parseDoubleResult = parser.Parse<double>(dataToImport, dataSourceLocation);
 
-        
-        private void AssertData(CellParser parser, IDataToImport dataToImport, IDataSourceLocation dataSourceLocation)
-        {
-            var parseResult = parser.Parse<CSVDataSource>(dataToImport, dataSourceLocation);
+            Assert.NotNull(parseDoubleResult);
+            Assert.AreEqual(parseDoubleResult.Level, ResultLevel.INFO);
+            Assert.AreEqual(parseDoubleResult.Message, "Parsing value successfully");
+            Assert.AreEqual(0.3, ((IParsingResult)parseDoubleResult).Value);
 
-            Assert.NotNull(parseResult);
-            Assert.AreEqual(parseResult.Level, ResultLevel.FATAL);
-        }
+            var parseDateTimeResult = parser.Parse<DateTime>(dataToImport, dataDateTimeSourceLocation);
 
-        
-        private void AssertParserSuccess(CellParser parser, IDataToImport dataToImport, IDataSourceLocation dataSourceLocation)
-        {
-            var parseResult = parser.Parse<CSVDataSource>(dataToImport, dataSourceLocation);
-
-            Assert.NotNull(parseResult);
-            Assert.AreEqual(parseResult.Message, "Parsing value successfully");
-        }
-
-        private void AssertParserFail(CellParser parser, IDataToImport dataToImport, IDataSourceLocation dataSourceLocation)
-        {
-            var parseResult = parser.Parse<CSVDataSource>(dataToImport, dataSourceLocation);
-
-            Assert.NotNull(parseResult);
-            Assert.AreEqual(parseResult.Message, "Index is out of range");
-        }
-
-        //test implementation
-        public class OtherDataSourceLocation : IDataSourceLocation
-        {
-            public OtherDataSourceLocation()
-            {
-
-            }
-        }
-
-        //test implementation
-        public class OtherDataToImport : IDataToImport
-        {
-            //Jagged array
-            private string[][] _rows;
-
-            public OtherDataToImport()
-            {
-               
-            }
-
-            public object Data
-            {
-                get { return _rows; }
-            }
+            Assert.NotNull(parseDateTimeResult);
+            Assert.AreEqual(parseDateTimeResult.Level, ResultLevel.INFO);
+            Assert.AreEqual(parseDateTimeResult.Message, "Parsing value successfully");
+            Assert.AreEqual(new DateTime(2013, 12, 12, 14, 0, 0), ((IParsingResult)parseDateTimeResult).Value);
         }
 
     }
