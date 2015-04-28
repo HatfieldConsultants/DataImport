@@ -17,7 +17,7 @@ namespace Hatfield.DataImport.ValueParsers
             {
                 try
                 {
-                    return (float)value;
+                    return Convert.ToSingle(value);
                 }
                 catch (Exception)
                 {
