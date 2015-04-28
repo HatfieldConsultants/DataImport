@@ -64,8 +64,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultLevelHelper.cs" />
     <Compile Include="ValueAssigners\SimpleValueAssigner.cs" />
+    <Compile Include="ValueParsers\BooleanValueParser.cs" />
     <Compile Include="ValueParsers\DateTimeValueParser.cs" />
+    <Compile Include="ValueParsers\DecimalValueParser.cs" />
     <Compile Include="ValueParsers\DoubleValueParser.cs" />
+    <Compile Include="ValueParsers\FloatValueParser.cs" />
     <Compile Include="ValueParsers\IntValueParser.cs" />
     <Compile Include="ValueParsers\StringValueParser.cs" />
   </ItemGroup>
