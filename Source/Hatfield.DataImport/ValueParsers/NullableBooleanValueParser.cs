@@ -5,23 +5,23 @@ using System.Text;
 
 namespace Hatfield.DataImport.ValueParsers
 {
-    public class FloatValueParser
+    public class NullableBooleanValueParser
     {
         public virtual object Parse(object value)
         {
             if (value == null)
             {
-                return 0.0;
+                return null;
             }
             else
             {
                 try
                 {
-                    return Convert.ToSingle(value);
+                    return Convert.ToBoolean(value);
                 }
                 catch (Exception)
                 {
-                    throw new FormatException("Cannot parse null value to Float");
+                    throw new InvalidOperationException("Cannot parse value to Boolean");
                 }
             }
         }

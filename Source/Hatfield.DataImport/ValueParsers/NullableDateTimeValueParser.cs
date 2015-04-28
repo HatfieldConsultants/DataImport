@@ -5,25 +5,26 @@ using System.Text;
 
 namespace Hatfield.DataImport.ValueParsers
 {
-    public class FloatValueParser
+    public class DateTimeValueParser : IValueParser
     {
         public virtual object Parse(object value)
         {
             if (value == null)
             {
-                return 0.0;
+                return null;
             }
             else
             {
                 try
                 {
-                    return Convert.ToSingle(value);
+                    return Convert.ToDateTime(value);
                 }
                 catch (Exception)
                 {
-                    throw new FormatException("Cannot parse null value to Float");
+                    throw new FormatException("Can not parse value to datetime");
                 }
             }
+
         }
     }
 }

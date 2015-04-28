@@ -11,7 +11,7 @@ namespace Hatfield.DataImport.ValueParsers
         {
             if (value == null)
             {
-                throw new ArgumentNullException("Cannot parse null value to Decimal");
+                return 0.0;
             }
             else
             {
