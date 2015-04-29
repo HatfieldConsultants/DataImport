@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hatfield.DataImport", "Source\Hatfield.DataImport\Hatfield.DataImport.csproj", "{FB279550-18D7-43D5-BC1E-01B651ED1C76}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hatfield.DataImport.Test", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{240D8D57-B89D-4B1C-B9AE-1378962BF6FD}"
 	ProjectSection(SolutionItems) = preProject
-		build.xml = build.xml
+		Deploy\build.xml = Deploy\build.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3708C995-EADE-4587-924C-143D58F61724}"
