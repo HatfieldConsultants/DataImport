@@ -21,7 +21,7 @@ namespace Hatfield.DataImport.ValueParsers
                 }
                 catch (Exception)
                 {
-                    throw new FormatException("Can not parse value (" + value + ") to double");
+                    throw new FormatException("Can not parse value (" + value.ToString() + ") to double");
                 }
             }
 

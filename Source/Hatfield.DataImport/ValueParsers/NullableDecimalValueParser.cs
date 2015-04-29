@@ -21,7 +21,7 @@ namespace Hatfield.DataImport.ValueParsers
                 }
                 catch (Exception)
                 {
-                    throw new InvalidOperationException("Cannot parse value (" + value + ") to Decimal");
+                    throw new FormatException("Cannot parse value (" + value.ToString() + ") to Decimal");
                 }
             }
         }

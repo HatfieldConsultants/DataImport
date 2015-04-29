@@ -21,7 +21,7 @@ namespace Hatfield.DataImport.ValueParsers
                 }
                 catch (Exception)
                 {
-                    throw new InvalidOperationException("Can not parse value (" + value + ") to integer");
+                    throw new FormatException("Can not parse value (" + value.ToString() + ") to integer");
                 }
             }
 
