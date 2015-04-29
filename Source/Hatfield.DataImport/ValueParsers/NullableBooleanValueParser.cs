@@ -17,11 +17,11 @@ namespace Hatfield.DataImport.ValueParsers
             {
                 try
                 {
-                    return Convert.ToBoolean(value);
+                    return (bool?)(Convert.ToBoolean(value));
                 }
                 catch (Exception)
                 {
-                    throw new InvalidOperationException("Cannot parse value to Boolean");
+                    throw new InvalidOperationException("Cannot parse value ("+value+") to Boolean");
                 }
             }
         }

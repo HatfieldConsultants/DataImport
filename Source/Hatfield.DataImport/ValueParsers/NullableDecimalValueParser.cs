@@ -17,11 +17,11 @@ namespace Hatfield.DataImport.ValueParsers
             {
                 try
                 {
-                    return Convert.ToDecimal(value);
+                    return (decimal?)(Convert.ToDecimal(value));
                 }
                 catch (Exception)
                 {
-                    throw new InvalidOperationException("Cannot parse value to Decimal");
+                    throw new InvalidOperationException("Cannot parse value (" + value + ") to Decimal");
                 }
             }
         }

@@ -21,7 +21,7 @@ namespace Hatfield.DataImport.ValueParsers
                 }
                 catch (Exception)
                 {
-                    throw new FormatException("Cannot parse null value to Boolean");
+                    throw new FormatException("Cannot parse value ( "+value+" ) to Boolean");
                 }
             }
         }

@@ -17,11 +17,11 @@ namespace Hatfield.DataImport.ValueParsers
             {
                 try
                 {
-                    return Convert.ToInt32(value);
+                    return (int?)(Convert.ToInt32(value));
                 }
                 catch (Exception)
                 {
-                    throw new InvalidOperationException("Can not parse value to integer");
+                    throw new InvalidOperationException("Can not parse value (" + value + ") to integer");
                 }
             }
 

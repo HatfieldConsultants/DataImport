@@ -17,11 +17,11 @@ namespace Hatfield.DataImport.ValueParsers
             {
                 try
                 {
-                    return Convert.ToDateTime(value);
+                    return (DateTime?)(Convert.ToDateTime(value));
                 }
                 catch (Exception)
                 {
-                    throw new FormatException("Can not parse value to datetime");
+                    throw new FormatException("Can not parse value ("+value+") to datetime");
                 }
             }
 

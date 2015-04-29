@@ -17,11 +17,11 @@ namespace Hatfield.DataImport.ValueParsers
             {
                 try
                 {
-                    return Convert.ToDouble(value);
+                    return (double?)(Convert.ToDouble(value));
                 }
                 catch (Exception)
                 {
-                    throw new FormatException("Can not parse value to double");
+                    throw new FormatException("Can not parse value (" + value + ") to double");
                 }
             }
 
