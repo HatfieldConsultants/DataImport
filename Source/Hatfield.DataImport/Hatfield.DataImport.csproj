@@ -68,15 +68,12 @@
     <Compile Include="ValueParsers\DateTimeValueParser.cs" />
     <Compile Include="ValueParsers\DecimalValueParser.cs" />
     <Compile Include="ValueParsers\DoubleValueParser.cs" />
-    <Compile Include="ValueParsers\FloatValueParser.cs" />
     <Compile Include="ValueParsers\IntValueParser.cs" />
     <Compile Include="ValueParsers\NullableBooleanValueParser.cs" />
     <Compile Include="ValueParsers\NullableDateTimeValueParser.cs" />
     <Compile Include="ValueParsers\NullableDecimalValueParser.cs" />
     <Compile Include="ValueParsers\NullableDoubleValueParser.cs" />
-    <Compile Include="ValueParsers\NullableFloatValueParser.cs" />
     <Compile Include="ValueParsers\NullableIntValueParser.cs" />
-    <Compile Include="ValueParsers\NullableStringValueParser.cs" />
     <Compile Include="ValueParsers\StringValueParser.cs" />
   </ItemGroup>
   <ItemGroup>
