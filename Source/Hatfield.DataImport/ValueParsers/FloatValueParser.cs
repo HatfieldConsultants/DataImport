@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Hatfield.DataImport.ValueParsers
 {
-    public class FloatValueParser
+    public class FloatValueParser:IValueParser
     {
         public virtual object Parse(object value)
         {

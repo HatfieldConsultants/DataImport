@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Hatfield.DataImport.ValueParsers
 {
-    public class DateTimeValueParser : IValueParser
+    public class NullableDateTimeValueParser : IValueParser
     {
         public virtual object Parse(object value)
         {
