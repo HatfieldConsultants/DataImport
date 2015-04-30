@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Hatfield.DataImport")]
+[assembly: AssemblyTitle("Hatfield.EnviroData.DataImport")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hatfield Consultants")]
-[assembly: AssemblyProduct("Hatfield.DataImport")]
+[assembly: AssemblyProduct("Hatfield.EnviroData.DataImport")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

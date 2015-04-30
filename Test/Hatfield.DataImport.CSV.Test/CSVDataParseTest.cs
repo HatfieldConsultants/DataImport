@@ -5,9 +5,9 @@ using System.Text;
 using System.IO;
 
 using NUnit.Framework;
-using Hatfield.DataImport.CSV.Parsers;
+using Hatfield.EnviroData.DataImport.CSV.Parsers;
 
-namespace Hatfield.DataImport.CSV.Test
+namespace Hatfield.EnviroData.DataImport.CSV.Test
 {
     [TestFixture]
     public class CSVDataParseTest

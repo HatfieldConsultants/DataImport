@@ -5,9 +5,9 @@ using System.Text;
 
 using NUnit.Framework;
 
-using Hatfield.DataImport;
+using Hatfield.EnviroData.DataImport;
 
-namespace Hatfield.DataImport.Test
+namespace Hatfield.EnviroData.DataImport.Test
 {
     [TestFixture]
     public class ResultLevelHelperTest

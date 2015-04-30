@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Hatfield.DataImport.ValueParsers
+namespace Hatfield.EnviroData.DataImport.ValueParsers
 {
     public class DoubleValueParser : IValueParser
     {
