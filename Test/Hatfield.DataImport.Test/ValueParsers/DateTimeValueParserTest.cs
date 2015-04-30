@@ -12,7 +12,7 @@ namespace Hatfield.DataImport.Test.ValueParsers
     [TestFixture]
     public class DateTimeValueParserTest
     {
-        static object[] testCases = new object[] { 
+          static object[] testCases = new object[] { 
             new object[]{
                 "2014-01-05",
                 new DateTime(2014, 1, 5)
