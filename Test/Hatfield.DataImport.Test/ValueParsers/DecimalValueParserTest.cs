@@ -20,8 +20,8 @@ namespace Hatfield.DataImport.Test.ValueParsers
                 444.66m
             },
             new object[]{
-                "456346.787575",
-                456346.787575m
+                null,
+                0.0
             }
         };
 
@@ -37,7 +37,6 @@ namespace Hatfield.DataImport.Test.ValueParsers
         }
 
         [Test]
-        [TestCase(null, typeof(ArgumentNullException), "Can not parse null value to datetime")]
         [TestCase("Hello World", typeof(FormatException), "Can not parse value to datetime")]
         public void AssertParseFailTest(string valueToParse, Type expectionType, string exceptionMessage)
         {

@@ -55,6 +55,7 @@
     <Compile Include="ValueParsers\DecimalValueParserTest.cs" />
     <Compile Include="ValueParsers\DoubleValueParserTest.cs" />
     <Compile Include="ValueParsers\IntValueParserTest.cs" />
+    <Compile Include="ValueParsers\NullableValueTypesTest.cs" />
     <Compile Include="ValueParsers\StringValueParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
