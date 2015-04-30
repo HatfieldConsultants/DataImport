@@ -5,9 +5,9 @@ using System.Text;
 
 using NUnit.Framework;
 
-using Hatfield.DataImport.ValueParsers;
+using Hatfield.EnviroData.DataImport.ValueParsers;
 
-namespace Hatfield.DataImport.Test
+namespace Hatfield.EnviroData.DataImport.Test
 {
     [TestFixture]
     public class DefaultParserFactoryTest

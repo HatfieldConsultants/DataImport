@@ -1,11 +1,11 @@
-﻿using Hatfield.DataImport.ValueParsers;
+﻿using Hatfield.EnviroData.DataImport.ValueParsers;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Hatfield.DataImport.Test.ValueParsers
+namespace Hatfield.EnviroData.DataImport.Test.ValueParsers
 {
     [TestFixture]
     public class BooleanValueParserTest

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 
-using Hatfield.DataImport.Helpers;
+using Hatfield.EnviroData.DataImport.Helpers;
 
-namespace Hatfield.DataImport.ValueAssigners
+namespace Hatfield.EnviroData.DataImport.ValueAssigners
 {
     public class SimpleValueAssigner : IValueAssigner
     {

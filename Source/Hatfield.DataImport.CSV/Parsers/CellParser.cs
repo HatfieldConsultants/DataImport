@@ -5,9 +5,9 @@ using System.Text;
 
 using CsvHelper;
 
-using Hatfield.DataImport;
+using Hatfield.EnviroData.DataImport;
 
-namespace Hatfield.DataImport.CSV.Parsers
+namespace Hatfield.EnviroData.DataImport.CSV.Parsers
 {
     public class CellParser : IParser
     {

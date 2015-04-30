@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Hatfield.DataImport.Criterias
+namespace Hatfield.EnviroData.DataImport.Criterias
 {
     public class RegexCriteria : ICriteria
     {

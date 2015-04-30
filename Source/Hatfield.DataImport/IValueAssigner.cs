@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Hatfield.DataImport
+namespace Hatfield.EnviroData.DataImport
 {
     public interface IValueAssigner
     {
